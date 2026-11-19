@@ -19,7 +19,7 @@
 <meta property="og:description" content="Alex Souza, corretor de imóveis em Goiânia. Estratégia e análise para comprar ou investir no Setor Marista, Setor Bueno e Jardim Goiás.">
 <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 <script>document.documentElement.className += ' js';</script>
 <!-- GA4 / Meta Pixel: preencher os IDs e descomentar quando existirem.
      GA4_ID = "[PLACEHOLDER]"   META_PIXEL_ID = "[PLACEHOLDER]"
@@ -52,10 +52,50 @@
       <!-- Frase de posicionamento: o Alex ainda vai escolher entre as 3 opções. -->
       <p class="note"><span class="ph">[PLACEHOLDER: frase de posicionamento]</span></p>
     </div>
-    <figure class="portrait" data-reveal>
-      <div class="frame"><img src="assets/img/alex-hero.jpg" width="1026" height="1280" alt="Retrato de Alex Souza, corretor de imóveis em Goiânia" fetchpriority="high"></div>
-      <figcaption><span>Alex Souza</span><span>CRECI <span class="ph">[PLACEHOLDER]</span></span></figcaption>
-    </figure>
+    <div class="hero-slider" data-reveal aria-label="Empreendimentos em destaque">
+      <div class="hs-track">
+        <div class="hs-slide is-active" role="group" aria-roledescription="slide" aria-label="1 de 2: City Code Ricardo Paranhos">
+          <div class="hs-visual shot" data-alt="City Code Ricardo Paranhos, Setor Marista, Goiânia"><span class="wait">City Code Ricardo Paranhos</span></div>
+          <div class="hs-panel">
+            <span class="hs-eyebrow">Pré-lançamento · Setor Marista · Goiânia</span>
+            <strong class="hs-name">City Code<br>Ricardo Paranhos</strong>
+            <ul class="hs-specs">
+              <li>19 a 55 m² · Studios a 2 quartos</li>
+              <li>28 pavimentos · 321 unidades</li>
+            </ul>
+            <div class="hs-ctas">
+              <a class="btn btn-bronze btn-sm" href="city-code-ricardo-paranhos/index.html">Ver detalhes</a>
+              <a class="btn btn-line btn-sm hs-tour" href="https://mirandaimagem.com.br/clientes/city/coderp360/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M1 11L11 1M11 1H5M11 1v6"/></svg>Tour Virtual</a>
+            </div>
+          </div>
+        </div>
+        <div class="hs-slide" role="group" aria-roledescription="slide" aria-label="2 de 2: ÓRA Vaca Brava" aria-hidden="true">
+          <div class="hs-visual shot" data-alt="ÓRA Vaca Brava, Goiânia"><span class="wait">ÓRA Vaca Brava</span></div>
+          <div class="hs-panel">
+            <span class="hs-eyebrow">Lançamento · Vaca Brava · Goiânia</span>
+            <strong class="hs-name">ÓRA<br>Vaca Brava</strong>
+            <ul class="hs-specs">
+              <li>Alto padrão · Goiânia · GO</li>
+            </ul>
+            <div class="hs-ctas">
+              <a class="btn btn-bronze btn-sm" href="ora-vaca-brava/index.html">Ver detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hs-nav" aria-hidden="true">
+        <button class="hs-arr hs-prev" type="button" aria-label="Slide anterior">
+          <svg width="16" height="11" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M17 6H1M6 1L1 6l5 5"/></svg>
+        </button>
+        <div class="hs-dots">
+          <button class="hs-dot is-active" type="button" aria-label="City Code Ricardo Paranhos"></button>
+          <button class="hs-dot" type="button" aria-label="ÓRA Vaca Brava"></button>
+        </div>
+        <button class="hs-arr hs-next" type="button" aria-label="Próximo slide">
+          <svg width="16" height="11" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M1 6h16M12 1l5 5-5 5"/></svg>
+        </button>
+      </div>
+    </div>
   </section>
 
   <!-- 2. FAIXA DE BAIRROS -->
@@ -212,6 +252,33 @@
   </div>
 </footer>
 <a class="wa" href="https://wa.me/5562991287785?text=Ol%C3%A1%2C%20Alex%21%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20im%C3%B3veis%20em%20Goi%C3%A2nia." target="_blank" rel="noopener" aria-label="Falar com o Alex no WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.6-4.3A8.5 8.5 0 1 1 20.5 11.5z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/></svg><span>WhatsApp</span></a>
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var slides=document.querySelectorAll('.hs-slide');
+  var dots=document.querySelectorAll('.hs-dot');
+  if(!slides.length)return;
+  var cur=0,timer;
+  function go(n){
+    slides[cur].classList.remove('is-active');
+    slides[cur].setAttribute('aria-hidden','true');
+    dots[cur].classList.remove('is-active');
+    cur=(n+slides.length)%slides.length;
+    slides[cur].classList.add('is-active');
+    slides[cur].removeAttribute('aria-hidden');
+    dots[cur].classList.add('is-active');
+  }
+  function arm(){
+    if(reduce)return;
+    clearTimeout(timer);
+    timer=setTimeout(function(){go(cur+1);arm();},5500);
+  }
+  document.querySelector('.hs-prev').addEventListener('click',function(){go(cur-1);arm();});
+  document.querySelector('.hs-next').addEventListener('click',function(){go(cur+1);arm();});
+  dots.forEach(function(d,i){d.addEventListener('click',function(){go(i);arm();});});
+  arm();
+})();
+</script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

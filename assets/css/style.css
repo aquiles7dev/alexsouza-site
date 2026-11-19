@@ -1,5 +1,5 @@
-/* Alex Souza · Imóveis — v3
-   Identidade: floresta #0C1E0E · verde-médio #1A3D1D · off-white #F2EEE5 · verde-acento #5BBF6E · erro #C0392B
+/* Alex Souza · Imóveis — v4
+   Identidade: floresta #0C1E0E · verde-médio #1A3D1D · off-white #F2EEE5 · âmbar #BF8A3A · erro #C0392B
    Títulos: Fraunces 300 · Texto: Inter 300/400 · hairlines de 1px · raio máx. 2px */
 
 @font-face{font-family:'Fraunces';src:url('../fonts/fraunces.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
@@ -8,8 +8,8 @@
 :root{
   --navy:#0C1E0E; --navy-deep:#081508; --blue:#1A3D1D;
   --paper:#F2EEE5; --white:#F8F6F0;
-  --bronze:#5BBF6E; --bronze-ink:#3A8A4A; --wine:#C0392B;
-  --on-dark:#E8F0E9; --on-dark-soft:#9EC4A5; --on-dark-mute:#6A9872;
+  --bronze:#BF8A3A; --bronze-ink:#8C5F1A; --wine:#C0392B;
+  --on-dark:#E8F0E9; --on-dark-soft:#A0B4B0; --on-dark-mute:#6A9872;
   --on-light:#0C1E0E; --on-light-soft:#3A5E42;
   --hair-d:rgba(255,255,255,.14); --hair-l:rgba(12,30,14,.14);
   --serif:'Fraunces',Georgia,'Times New Roman',serif;
@@ -60,7 +60,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
 /* Botões e links */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 30px;border:1px solid transparent;border-radius:2px;font-size:14.5px;font-weight:400;letter-spacing:.02em;transition:background .25s ease,border-color .25s ease,color .25s ease}
 .btn-bronze{background:var(--bronze);color:var(--navy);font-weight:500}
-.btn-bronze:hover{background:#3A8A4A}
+.btn-bronze:hover{background:#8A5E18}
 .btn-line{border-color:var(--hair-d);color:var(--on-dark)}
 .btn-line:hover{border-color:var(--bronze);color:var(--bronze)}
 .btn-navy{background:var(--navy);color:var(--paper)}
@@ -96,7 +96,28 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .portrait .frame{aspect-ratio:4/5;overflow:hidden;border-radius:2px;background:var(--blue)}
 .portrait img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
 .portrait figcaption{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--hair-d);font-size:12px;letter-spacing:.06em;color:var(--on-dark-mute)}
-@media (max-width:860px){.hero{grid-template-columns:1fr}.portrait{max-width:440px}}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.portrait{max-width:440px}.hero-slider{max-width:440px}}
+
+/* Hero slider */
+.hero-slider{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:2px}
+.hs-track{position:relative;height:100%}
+.hs-slide{position:absolute;inset:0;opacity:0;transition:opacity .65s ease;pointer-events:none}
+.hs-slide.is-active{opacity:1;pointer-events:auto}
+.hs-visual{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:unset!important;border-radius:0!important;overflow:hidden}
+.hs-panel{position:absolute;inset:0;padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,rgba(8,21,8,.92) 0%,rgba(8,21,8,.48) 50%,rgba(8,21,8,.06) 100%)}
+.hs-eyebrow{font-size:10.5px;font-weight:400;letter-spacing:.26em;text-transform:uppercase;color:var(--bronze);margin-bottom:12px}
+.hs-name{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(24px,3vw,40px);line-height:1.06;letter-spacing:-.016em;color:var(--on-dark);margin-bottom:10px;font-variation-settings:'opsz' 60}
+.hs-specs{display:flex;flex-direction:column;gap:4px;margin-bottom:20px;font-size:12.5px;color:var(--on-dark-mute);letter-spacing:.03em;padding:0;list-style:none}
+.hs-specs li::before{content:"— "}
+.hs-ctas{display:flex;flex-wrap:wrap;gap:10px}
+.hs-tour svg{flex-shrink:0;margin-right:2px}
+.hs-nav{position:absolute;inset:0;pointer-events:none}
+.hs-arr{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:38px;height:38px;display:grid;place-items:center;border-radius:2px;background:rgba(8,21,8,.52);color:var(--on-dark);border:1px solid var(--hair-d);transition:background .25s;pointer-events:auto}
+.hs-prev{left:12px}.hs-next{right:12px}
+.hs-arr:hover{background:rgba(8,21,8,.82)}
+.hs-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;pointer-events:auto}
+.hs-dot{width:28px;height:3px;border-radius:2px;background:rgba(255,255,255,.26);border:0;padding:0;transition:background .3s,width .3s;flex-shrink:0}
+.hs-dot.is-active{background:var(--bronze);width:48px}
 
 /* Faixa de bairros */
 .strip{border-block:1px solid var(--hair-d)}
