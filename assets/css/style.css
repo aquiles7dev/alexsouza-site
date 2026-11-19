@@ -20,7 +20,8 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px;scroll-snap-type:y mandatory}
+@media(max-width:760px){html{scroll-snap-type:none}}
 body{margin:0;background:var(--navy);color:var(--on-dark);font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
@@ -37,7 +38,9 @@ button{cursor:pointer;background:none;border:0;padding:0}
 
 /* Base de layout */
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
-.sec{padding-block:var(--sec)}
+.sec{padding-block:var(--sec);scroll-snap-align:start;min-height:100dvh;display:flex;flex-direction:column;justify-content:center}
+.sec > .wrap{width:100%}
+@media(max-width:760px){.sec{min-height:0;scroll-snap-align:none}}
 .on-light{background:var(--paper);color:var(--on-light)}
 .deep{background:var(--navy-deep)}
 
@@ -90,7 +93,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
 }
 
 /* Hero da home */
-.hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,88px);align-items:center;padding-block:clamp(40px,6vw,88px) clamp(64px,8vw,112px)}
+.hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,88px);align-items:center;padding-block:clamp(40px,6vw,88px) clamp(64px,8vw,112px);scroll-snap-align:start;min-height:100dvh}
 .hero-copy{display:grid;gap:30px;justify-items:start}
 .portrait{position:relative}
 .portrait .frame{aspect-ratio:4/5;overflow:hidden;border-radius:2px;background:var(--blue)}
@@ -186,13 +189,16 @@ figcaption.cap small{font-size:11px;letter-spacing:.14em;text-transform:uppercas
 .spec dd{margin:0;text-align:right}
 @media (max-width:760px){.dev{grid-template-columns:1fr}.dev .shot{aspect-ratio:4/3;min-height:0}}
 
-/* O jeito Alex de investir (editorial, sem caixas) */
-.asks{margin-top:clamp(44px,6vw,80px);border-top:1px solid var(--hair-l)}
-.ask{display:grid;grid-template-columns:minmax(72px,2fr) minmax(0,5fr) minmax(0,5fr);gap:clamp(16px,4vw,56px);align-items:baseline;padding-block:clamp(28px,4vw,48px);border-bottom:1px solid var(--hair-l)}
-.ask .n{font-family:var(--serif);font-weight:200;font-size:clamp(52px,7vw,96px);line-height:.9;color:var(--bronze-ink);font-variation-settings:'opsz' 144}
-.ask h3{font-family:var(--serif);font-weight:300;font-size:clamp(24px,2.8vw,34px);line-height:1.15;font-variation-settings:'opsz' 80}
-.ask p{color:var(--on-light-soft)}
-@media (max-width:760px){.ask{grid-template-columns:1fr;gap:10px}}
+/* O jeito Alex — 3 colunas refinadas */
+.jeito-intro{margin-bottom:clamp(32px,4vw,52px);max-width:64ch}
+.jeito-intro .lead{margin-top:14px;font-size:16px;color:var(--on-light-soft);line-height:1.65}
+.jeito-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--hair-l)}
+.jeito-card{padding:clamp(24px,3vw,40px) clamp(16px,2.4vw,36px);border-right:1px solid var(--hair-l);display:flex;flex-direction:column;gap:0}
+.jeito-card:last-child{border-right:0}
+.jn{font-family:var(--serif);font-weight:200;font-size:clamp(28px,2.8vw,38px);line-height:1;color:var(--bronze-ink);font-variation-settings:'opsz' 100;margin-bottom:20px}
+.jeito-card h3{font-family:var(--serif);font-weight:300;font-size:clamp(17px,1.6vw,21px);line-height:1.25;color:var(--on-light);margin-bottom:16px;font-variation-settings:'opsz' 60}
+.jeito-card p{font-size:14px;color:var(--on-light-soft);line-height:1.7;margin-top:auto;padding-top:16px;border-top:1px solid var(--hair-l)}
+@media(max-width:760px){.jeito-grid{grid-template-columns:1fr}.jeito-card{border-right:0;border-bottom:1px solid var(--hair-l)}.jeito-card:last-child{border-bottom:0}}
 
 /* Conteúdo (Goiânia em análise) */
 .post{width:min(380px,80vw);display:grid;gap:16px}
