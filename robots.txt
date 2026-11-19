@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Sitemap: https://[DOMÍNIO]/sitemap.xml   (descomentar quando o domínio for confirmado)
