@@ -119,6 +119,21 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .hs-dot{width:28px;height:3px;border-radius:2px;background:rgba(255,255,255,.26);border:0;padding:0;transition:background .3s,width .3s;flex-shrink:0}
 .hs-dot.is-active{background:var(--bronze);width:48px}
 
+/* Vinheta de cantos (overlay fixo, sem bloquear cliques) */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;background:radial-gradient(ellipse 150% 120% at 50% 50%,transparent 44%,rgba(0,0,0,.34) 100%)}
+
+/* Mini-galeria no card de empreendimento */
+.dev-gallery{position:relative;width:100%;height:100%}
+.dev-gallery .shot{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s ease;border-radius:0;aspect-ratio:unset!important;object-fit:cover}
+.dev-gallery .shot.dg-active{opacity:1}
+.dg-arr{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:34px;height:34px;display:grid;place-items:center;background:rgba(8,21,8,.55);border:1px solid rgba(255,255,255,.18);border-radius:2px;color:var(--on-dark);transition:background .2s}
+.dg-arr:hover{background:rgba(8,21,8,.85)}
+.dg-prev{left:10px}.dg-next{right:10px}
+.dg-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:4}
+.dg-dot{width:24px;height:2px;border-radius:1px;background:rgba(255,255,255,.28);border:0;padding:0;transition:background .3s,width .3s;flex-shrink:0}
+.dg-dot.dg-active{background:var(--bronze);width:38px}
+@media(max-width:760px){.dev-gallery{min-height:200px}}
+
 /* Faixa de bairros */
 .strip{border-block:1px solid var(--hair-d)}
 .strip ul{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px clamp(20px,5vw,64px);padding-block:26px;font-family:var(--serif);font-weight:300;font-size:clamp(19px,2.2vw,26px);font-variation-settings:'opsz' 60;color:var(--on-dark-soft)}
