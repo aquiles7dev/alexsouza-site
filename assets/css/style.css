@@ -60,7 +60,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
 /* Botões e links */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 30px;border:1px solid transparent;border-radius:2px;font-size:14.5px;font-weight:400;letter-spacing:.02em;transition:background .25s ease,border-color .25s ease,color .25s ease}
 .btn-bronze{background:var(--bronze);color:var(--navy);font-weight:500}
-.btn-bronze:hover{background:#CFB07F}
+.btn-bronze:hover{background:#3A8A4A}
 .btn-line{border-color:var(--hair-d);color:var(--on-dark)}
 .btn-line:hover{border-color:var(--bronze);color:var(--bronze)}
 .btn-navy{background:var(--navy);color:var(--paper)}
@@ -113,7 +113,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .shot:hover img{transform:scale(1.03)}
 .shot .wait{position:absolute;left:20px;bottom:18px;right:76px;font-size:10.5px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,241,234,.72)}
 .shot.has-img .wait{display:none}
-.plus{position:absolute;right:16px;bottom:16px;width:44px;height:44px;display:grid;place-items:center;border:1px solid rgba(244,241,234,.5);border-radius:2px;color:var(--paper);background:rgba(12,26,51,.35);transition:background .25s,border-color .25s}
+.plus{position:absolute;right:16px;bottom:16px;width:44px;height:44px;display:grid;place-items:center;border:1px solid rgba(244,241,234,.5);border-radius:2px;color:var(--paper);background:rgba(12,30,14,.35);transition:background .25s,border-color .25s}
 .plus:hover{background:var(--bronze);border-color:var(--bronze);color:var(--navy)}
 .r-16x9{aspect-ratio:16/9}.r-4x3{aspect-ratio:4/3}.r-4x5{aspect-ratio:4/5}
 figcaption.cap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:14px;color:var(--on-dark-soft)}
@@ -209,7 +209,7 @@ legend{padding:0;margin-bottom:10px;font-size:11.5px;font-weight:400;letter-spac
 .dhero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,88px);align-items:center;padding-block:clamp(48px,7vw,104px)}
 .dhero-copy{display:grid;gap:28px;justify-items:start}
 .dhero .wait{left:var(--edge);bottom:20px}
-@media (max-width:900px){.dhero .wrap{grid-template-columns:1fr}.dhero::before{background:rgba(9,20,39,.78)}}
+@media (max-width:900px){.dhero .wrap{grid-template-columns:1fr}.dhero::before{background:rgba(8,21,8,.78)}}
 
 /* Números */
 .nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--hair-d)}
